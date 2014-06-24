@@ -411,10 +411,12 @@ oldHash = HistoryHash.getHash();
 oldUrl  = HistoryHash.getUrl();
 
 if (HistoryBase.nativeHashChange) {
+    var _yuiwyuid = Y.config.win.Y.Env._yuid; // yui window yuid. mm.
+
     // Wrap the browser's native hashchange event if there's not already a
     // global listener.
-    if (!GlobalEnv._hashHandle) {
-        GlobalEnv._hashHandle = Y.Event.attach('hashchange', function (e) {
+    if (!YUI.namespace('GlobalEnv._hashHandle')[_yuiwyuid]) {
+        YUI.namespace('GlobalEnv._hashHandle')[_yuiwyuid] = Y.Event.attach('hashchange', function (e) {
             var newHash = HistoryHash.getHash(),
                 newUrl  = HistoryHash.getUrl();
 
