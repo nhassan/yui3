@@ -53,7 +53,7 @@ Y.later = function(when, o, fn, data, periodic) {
                 }
             }
         },
-        id = (periodic) ? setInterval(wrapper, when) : setTimeout(wrapper, when);
+        id = (periodic) ? Y.config.win.setInterval(wrapper, when) : Y.config.win.setTimeout(wrapper, when);
 
     return {
         id: id,
@@ -61,9 +61,9 @@ Y.later = function(when, o, fn, data, periodic) {
         cancel: function() {
             cancelled = true;
             if (this.interval) {
-                clearInterval(id);
+                Y.config.win.clearInterval(id);
             } else {
-                clearTimeout(id);
+                Y.config.win.clearTimeout(id);
             }
         }
     };
