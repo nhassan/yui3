@@ -465,7 +465,7 @@ Y.CustomEvent.prototype = {
             }
 
             if (this.async) {
-                setTimeout(Y.bind(this._notify, this, s, firedWith), 0);
+                Y.config.win.setTimeout(Y.bind(this._notify, this, s, firedWith), 0);
             } else {
                 this._notify(s, firedWith);
             }

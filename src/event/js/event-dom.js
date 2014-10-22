@@ -230,7 +230,7 @@ Event._interval = setInterval(Event._poll, Event.POLL_INTERVAL);
             _retryCount = this.POLL_RETRYS;
 
             // We want the first test to be immediate, but async
-            setTimeout(Event._poll, 0);
+            Y.config.win.setTimeout(Event._poll, 0);
 
             availHandle = new Y.EventHandle({
 
